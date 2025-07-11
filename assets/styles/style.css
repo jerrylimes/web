@@ -283,7 +283,20 @@ svg {
     text-decoration: none;
 }
 
+/*
+ * Author: Jerry Li
+ * Version: 16.0
+ * Date: Jul 11 2025
+ */
+
+body {
+    margin: 0;
+}
+
 #common-header {
+    position: fixed;
+    top: 8px;
+    left: 8px;
     overflow: hidden;
     z-index: 3;
 }
@@ -295,9 +308,6 @@ svg {
     display: flex;
     justify-content: start;
     align-items: center;
-    position: fixed;
-    top: 8px;
-    left: 8px;
 }
 
 #compound a,
@@ -366,11 +376,9 @@ svg {
 #details.display {
     width: fit-content;
     display: block;
-    margin-left: 8px;
-    margin-right: 8px;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 46px;
+    margin-top: 8px;
     background-color: #fafafa;
 }
 
@@ -424,6 +432,13 @@ svg {
 
     #details li {
         border-bottom-color: transparent;
+    }
+
+    #home-button.active,
+    #history-button.active,
+    #chat-button.active,
+    #web-stories-button.active {
+        background-color: #303030 !important;
     }
 }
 
