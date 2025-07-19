@@ -1,3 +1,8 @@
+<!--
+    Author: Jerry Li
+    Date: Jul 19 2025
+    Version: 1.0
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Jerry's Website</title>
+    <title>so I have this website...</title>
     <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
@@ -18,26 +23,37 @@
 
 <body>
     <header>
-        <div id="common-header">
-            <div id="compound">
+        <div id="turnstile">
+            <div id="blinds">
                 <div id="logo"></div>
-                <div id="c-links">
-                    <a href="https://jerryly.top/" id="home-button" class="c-link">
-                        <span class="material-symbols-outlined">home</span><span class="c-label">home</span>
-                    </a>
-                    <a href="https://old.jerryly.top" id="history-button" class="c-link">
-                        <span class="material-symbols-outlined">history</span><span class="c-label">legacy site</span>
-                    </a>
-                    <a href="https://blog.jerryly.top/" id="chat-button" class="c-link">
-                        <span class="material-symbols-outlined">chat</span><span class="c-label">blog</span>
-                    </a>
-                    <a href="https://demo.jerryly.top/" id="web-stories-button" class="c-link">
-                        <span class="material-symbols-outlined">web_stories</span><span class="c-label">project
-                            demo</span>
-                    </a>
+                <div id="links">
+                    <span class="material-symbols-outlined home-button">home</span>
+                    <span class="material-symbols-outlined history-button">history</span>
+                    <span class="material-symbols-outlined chat-button">chat</span>
+                    <span class="material-symbols-outlined web-stories-button">web_stories</span>
                 </div>
+                <div id="empty-element"></div>
             </div>
-            <div id="details"></div>
+            <div id="drawer">
+                <div id="empty-element-logo"></div>
+                <div id="text-display">
+                    <span id="home-button">home</span>
+                    <span id="history-button">legacy site</span>
+                    <span id="chat-button">blog</span>
+                    <span id="web-stories-button">project demo</span>
+                </div>
+                <div id="empty-element"></div>
+            </div>
+            <div id="cloth">
+                <div id="welcome">bonjour</div>
+                <p id="text-n">You're now browsing jerryly.top.</p>
+                <div id="cloth-subtitle">
+                    A work in progress
+                </div>
+                <p id="text-n">is not just a phrase often seen in excuses, it's also what this website is currently.</p>
+                <p id="text-n">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email
+                        me.</a></p>
+            </div>
         </div>
     </header>
     <main>
@@ -69,47 +85,103 @@
         </p>
     </footer>
     <script>
+        $("#turnstile").click(() => {
+            $("#turnstile").addClass("expanded");
+            $("#content-unit").addClass("displaced");
+        });
+
+        $(document).click(function (event) {
+            if (!$(event.target).closest("#turnstile").length) {
+                $("#turnstile").removeClass("expanded");
+                $("#content-unit").removeClass("displaced");
+            }
+        });
+
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const date = today.getDate();
+        const hour = today.getHours();
+        function updateWelcomeMessage() {
+            const now = new Date();
+            if (now.getHours() < 18) {
+                document.getElementById("welcome").innerText = "Bonjour";
+            } else {
+                document.getElementById("welcome").innerText = "Bonsoir";
+            }
+        }
+        setInterval(() => {
+            updateWelcomeMessage();
+        }, 1000);
+
         if (window.location.href.includes("https://jerryly.top")) {
-            document.querySelector("#home-button").classList.add("active");
+            document.querySelector(".home-button").classList.add("active");
         } else if (window.location.href.includes("https://old.jerryly.top")) {
-            document.querySelector("#history-button").classList.add("active");
+            document.querySelector(".history-button").classList.add("active");
         } else if (window.location.href.includes("https://blog.jerryly.top")) {
-            document.querySelector("#chat-button").classList.add("active");
+            document.querySelector(".chat-button").classList.add("active");
         } else if (window.location.href.includes("https://demo.jerryly.top")) {
-            document.querySelector("#web-stories-button").classList.add("active");
+            document.querySelector(".web-stories-button").classList.add("active");
         }
 
-        $(".c-link").hover(
+        $(".home-button").hover(
             function () {
-                $("#details").addClass("display");
+                $(this).addClass("highlighted");
+                $("#home-button").css("font-weight", "700");
             },
             function () {
-                if (!isClicking) {
-                    $("details").removeClass("display");
-                }
+                $(this).removeClass("highlighted");
+                $("#home-button").css("font-weight", "300");
             }
-        )
+        );
 
-        let isClicking = false;
-
-        $(".c-link").on("mousedown", function () {
-            isClicking = true;
-            $("#details").addClass("display");
-        })
-
-        $(document).on("mouseup", function () {
-            isClicking = false;
-            if (!$(".c-link:hover").length) {
-                $("#details").removeClass("display");
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".home-button").length) {
+                $(".home-button").removeClass("highlighted").css("font-weight", "300");
             }
-        })
+        });
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".home-button").length) {
+                $(".home-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(".home-button").click(function () {
+            $("#cloth").html(`
+            <div id="welcome">bonjour</div>
+            <p id="text-n">You're now browsing jerryly.top.</p>
+            <div id="cloth-subtitle">
+                A work in progress
+            </div>
+            <p id="text-n">is not just a phrase often seen in excuses, it's also what this website is currently.</p>
+            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
+        `);
+        });
 
-        $("#history-button").hover(() => {
-            $("#details").html(
-                `
-            <span>
-                <b>Legacy site contains the following.</b>
-            </span>
+        $(".history-button").hover(
+            function () {
+                $(this).addClass("highlighted");
+                $("#history-button").css("font-weight", "700");
+            },
+            function () {
+                $(this).removeClass("highlighted");
+                $("#history-button").css("font-weight", "300");
+            }
+        );
+
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".history-button").length) {
+                $(".history-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".history-button").length) {
+                $(".history-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(".history-button").click(function () {
+            $("#cloth").html(`
+            <div id="cloth-subtitle">
+                Legacy site contains
+            </div>
             <ul>
                 <a href="https://old.jerryly.top/pages/about">
                     <li>
@@ -225,22 +297,74 @@
                 </a>
             </ul>
             <span class="file-type">Note that as of Feb 7 2025 the legacy site has stopped updating.</span>
-            `
-            );
+        `);
         });
 
-        $("#chat-button").hover(() => {
-            $("#details").html(`<span><b>A list of content is available on the site itself.</b></span>`);
+
+        $(".chat-button").hover(
+            function () {
+                $(this).addClass("highlighted");
+                $("#chat-button").css("font-weight", "700");
+            },
+            function () {
+                $(this).removeClass("highlighted");
+                $("#chat-button").css("font-weight", "300");
+            }
+        );
+
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".chat-button").length) {
+                $(".chat-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".chat-button").length) {
+                $(".chat-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(".chat-button").click(function () {
+            $("#cloth").html(`
+            <div id="cloth-subtitle">
+                My blog
+            </div>
+            <p id="text-n">contains entries spanning from 3 years ago to 1 year ago. I should probably update more often.</p>
+            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
+        `);
         });
 
-        $("#web-stories-button").hover(() => {
-            $("#details").html(`<span><b>Contains experimental features and prototypes I'm working on.</b></span>`);
-        });
+        $(".web-stories-button").hover(
+            function () {
+                $(this).addClass("highlighted");
+                $("#web-stories-button").css("font-weight", "700");
+            },
+            function () {
+                $(this).removeClass("highlighted");
+                $("#web-stories-button").css("font-weight", "300");
+            }
+        );
 
-        $("#home-button").hover(() => {
-            $("#details").html(`<span><b>The domain of jerryly.top.</b></span>`);
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".web-stories-button").length) {
+                $(".web-stories-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(document).click(function (event) {
+            if (!$(event.target).closest(".web-stories-button").length) {
+                $(".web-stories-button").removeClass("highlighted").css("font-weight", "300");
+            }
+        });
+        $(".web-stories-button").click(function () {
+            $("#cloth").html(`
+            <div id="cloth-subtitle">
+                Project demo
+            </div>
+            <p id="text-n">contains project or models in test. Only visit this site when advised to.</p>
+            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
+        `);
         });
     </script>
+
+
 </body>
 
 </html>
