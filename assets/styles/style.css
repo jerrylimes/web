@@ -104,202 +104,185 @@ svg {
 
 /*
  * Author: Jerry Li
- * Date: Jul 19 2025 
+ * Date: Jul 22 2025
+ * Version: 17.0
  */
 
-#turnstile {
-    width: 60px;
-    height: 100%;
+#menu {
+    width: 36px;
+    height: calc(100vh - 20px);
     position: fixed;
     top: 0;
     left: 0;
-    overflow: hidden;
-    z-index: 2;
-    display: flex;
-    transition: all 0.5s cubic-bezier(0, 1, 0, 1.03);
-    font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#blinds {
-    width: 50px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
     transition: all 0.4s cubic-bezier(0, 1, 0, 1.03);
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#turnstile.expanded {
-    width: 470px;
-    background-color: #ffffffcb;
-    backdrop-filter: blur(0.2em);
+#menu::-webkit-scrollbar {
+    width: 0;
 }
 
-#turnstile.expanded #links {
-    opacity: 1;
-}
-
-#turnstile.expanded #logo {
-    opacity: 1;
-}
-
-#turnstile.expanded #blinds {
-    background-color: #fbfbfb;
-}
-
-#drawer {
-    margin-left: 50px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #fbfbfb;
-    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.03);
-}
-
-#text-display {
-    overflow: hidden;
-    width: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    white-space: nowrap;
-    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.03);
-}
-
-#text-display span {
+#logo-link {
     display: block;
-    height: 24px;
-    padding: 4px;
-    margin-bottom: 10px;
+    width: 24px;
+}
+
+#logo-wrapper {
+    width: 24px;
+    padding: 6px;
     border-radius: 8px;
-    transition: all 0.2s;
 }
 
-#turnstile.expanded #drawer,
-#turnstile.expanded #text-display {
-    width: 120px;
-}
-
-#blinds:hover #logo,
-#blinds:hover #links {
-    opacity: 1;
+#logo-wrapper:hover {
+    background-color: #f0f0f0;
 }
 
 #logo {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     background-image: url(../images/logo-button-light.svg);
-    background-repeat: no-repeat;
     background-size: contain;
+    background-repeat: no-repeat;
     opacity: 0.5;
-    margin-top: 14px;
-    transition: all 0.2s;
+    transition: all 0.2s cubic-bezier(0, 1, 0, 1);
 }
 
-#links {
-    width: 30px;
-    opacity: 0.5;
-    font-size: 22px;
-    transition: all 0.2s;
+#menu:hover #logo {
+    opacity: 1;
 }
 
-#links .material-symbols-outlined {
-    font-weight: 250;
-    padding: 4px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: all 0.2s;
+#menu.expanded {
+    width: 300px;
 }
 
-#empty-element-logo {
-    height: 36px;
+#menu.expanded #logo {
+    opacity: 1;
 }
 
-#cloth {
-    width: 260px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    height: calc(100% - 10px);
+#location-indicator {
+    width: 0;
+    overflow: hidden;
+    padding: 0px;
 }
 
-#cloth a {
-    color: unset;
-}
-
-#welcome {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#cloth-subtitle {
+.subdomain {
+    max-width: 113px;
+    border: solid 1px #eee;
+    border-radius: 10px;
+    padding: 10px;
     font-size: 18px;
     font-weight: bold;
-}
-
-#content-unit {
-    margin-left: 50px;
-    margin-right: 10px;
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: all 0.2s cubic-bezier(0, 0.6, 0, 1);
     overflow: hidden;
 }
 
-#content-unit.displaced {
-    margin-left: 180px;
-    margin-right: 0;
-    opacity: 0.5;
+.subdomain span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#text-n {
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#menu a {
+    text-decoration: none;
+    color: unset;
 }
 
-@media (max-width: 430px) {
-    #turnstile.expanded {
-        width: 300px;
-    }
-
-    #drawer {
-        display: none;
-    }
-
-    #cloth {
-        margin-left: 60px;
-    }
-
-    #content-unit {
-        margin-left: 50px;
-        margin-right: 10px;
-    }
-
-    #content-unit.displaced {
-        margin-left: 50px;
-    }
+#menu.expanded #location-indicator {
+    width: calc(300px - 20px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    padding: 10px;
 }
 
-.home-button.highlighted,
-.history-button.highlighted,
-.chat-button.highlighted,
-.web-stories-button.highlighted {
-    font-weight: 400 !important;
+#menu.expanded #location-indicator div {
+    margin-bottom: 10px;
 }
 
-.home-button.active,
-.history-button.active,
-.chat-button.active,
-.web-stories-button.active {
-    font-weight: 400;
-    background-color: #f3f3f3;
+#menu.expanded #logo-wrapper {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
 }
 
-#cloth ul {
+#menu.expanded #logo {
+    width: 44px;
+    height: 44px;
+}
+
+#content-unit {
+    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.05);
+}
+
+#content-unit.shifted {
+    margin-left: 310px;
+    filter: blur(0.5em);
+}
+
+.text-n {
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#welcome {
+    display: none;
+}
+
+#menu.expanded #welcome {
+    display: block;
+    padding-left: 10px;
+    font-weight: light;
+    font-size: 22px;
+}
+
+#call {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#welcome {
+    padding-right: 10px;
+}
+
+#location-indicator a:hover .subdomain {
+    background-color: #eee;
+}
+
+#subdomain-4:hover {
+    background-color: #eee;
+}
+
+.subdomain.shrink,
+.subdomain-link.shrink {
+    display: block;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#location-indicator.widen {
+    grid-template-columns: 1fr !important;
+}
+
+#location-indicator.widen div:first-child {
+    margin-bottom: 0 !important;
+}
+
+#location-indicator.widen .subdomain {
+    max-width: 280px;
+}
+
+#subdomain-4 ul {
+    display: none;
+}
+
+#location-indicator.widen #subdomain-4 ul {
     display: grid;
     margin: 0;
     padding: 0;
@@ -307,12 +290,12 @@ svg {
     overflow: hidden;
 }
 
-#cloth span {
+#subdomain-4 span:not(:first-child) {
     display: block;
     padding: 2px;
 }
 
-#cloth li {
+#subdomain-4 li {
     list-style: none;
     padding: 2px;
     padding-left: 0;
@@ -320,21 +303,23 @@ svg {
     display: grid;
     grid-template-columns: 2fr 1fr 1.5em;
     transition: all 0.2s;
+    font-size: 14px;
+    font-weight: normal;
 }
 
-#cloth a {
+#subdomain-4 a {
     text-decoration: none;
 }
 
-#cloth li:hover {
+#subdomain-4 li:hover {
     font-weight: bold;
 }
 
-#cloth li:hover .material-symbols-outlined {
+#subdomain-4 li:hover .material-symbols-outlined {
     font-weight: bold;
 }
 
-#cloth .material-symbols-outlined {
+#subdomain-4 .material-symbols-outlined:not(:first-child) {
     transition: all 0.2s;
     font-size: 18px;
 }
@@ -344,9 +329,21 @@ svg {
     font-size: 14px;
 }
 
-.cloth-smaller {
+#m-copyright {
+    padding: 10px;
     font-size: 14px;
     opacity: 0.5;
+    position: absolute;
+    bottom: 6px;
+    display: none;
+}
+
+#menu.expanded #m-copyright {
+    display: block;
+}
+
+#menu.expanded #m-copyright.hidden {
+    display: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -354,32 +351,17 @@ svg {
         background-image: url(../images/logo-button-dark.svg);
     }
 
-    #blinds,
-    #drawer {
-        background-color: transparent;
+    .subdomain {
+        border-color: #333;
     }
 
-    #turnstile.expanded #blinds,
-    #turnstile.expanded #drawer {
-        background-color: #171717;
+    #location-indicator a:hover .subdomain,
+    #subdomain-4:hover {
+        background-color: #333;
     }
 
-    #turnstile.expanded {
-        background-color: #1d1d1da4;
-    }
-
-    .home-button.active,
-    .history-button.active,
-    .chat-button.active,
-    .web-stories-button.active {
-        background-color: #232323;
-    }
-}
-
-@media (max-width: 430px) {
-    #turnstile.expanded {
-        background-color: #171717d2;
-        backdrop-filter: blur(0.2em);
+    #logo-wrapper:hover {
+        background-color: #242424;
     }
 }
 

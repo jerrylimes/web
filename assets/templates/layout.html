@@ -12,7 +12,6 @@
     <meta name="color-scheme" content="light dark">
     <title>so I have this website...</title>
     <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,arrow_forward,chat,exit_to_app,favorite,gavel,history,home,info,lightbulb,live_tv,open_in_new,person_add,question_mark,science,web_stories" />
@@ -23,50 +22,177 @@
 
 <body>
     <header>
-        <div id="turnstile">
-            <div id="blinds">
-                <div id="logo"></div>
-                <div id="links">
-                    <a href="https://jerryly.cn">
-                        <span class="material-symbols-outlined home-button">home</span>
-                    </a>
-                    <a href="https://old.jerryly.cn">
-                        <span class="material-symbols-outlined history-button">history</span>
-                    </a>
-                    <a href="https://blog.jerryly.cn">
-                        <span class="material-symbols-outlined chat-button">chat</span>
-                    </a>
-                    <a href="https://demo.jerryly.cn">
-                        <span class="material-symbols-outlined web-stories-button">web_stories</span>
-                    </a>
-                </div>
-                <div id="empty-element"></div>
-            </div>
-            <div id="drawer">
-                <div id="empty-element-logo"></div>
-                <div id="text-display">
-                    <span id="home-button">home</span>
-                    <span id="history-button">legacy site</span>
-                    <span id="chat-button">blog</span>
-                    <span id="web-stories-button">project demo</span>
-                </div>
-                <div id="empty-element"></div>
-            </div>
-            <div id="cloth">
+        <div id="menu">
+            <div id="call">
+                <a href="https://jerryly.cn" id="logo-link">
+                    <div id="logo-wrapper">
+                        <div id="logo"></div>
+                    </div>
+                </a>
                 <div id="welcome">bonjour</div>
-                <p id="text-n">You're now browsing jerryly.top.</p>
-                <div id="cloth-subtitle">
-                    A work in progress
-                </div>
-                <p id="text-n">is not just a phrase often seen in excuses, it's also what this website is currently.</p>
-                <p id="text-n">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email
-                        me.</a></p>
             </div>
+            <div id="location-indicator">
+                <div>
+                    <a href="https://jerryly.cn" class="subdomain-link">
+                        <div class="subdomain" id="subdomain-1">
+                            <span>
+                                <span class="material-symbols-outlined">home</span>www
+                            </span>
+                            <p class="text-n">The main page of jerryly.cn.</p>
+                        </div>
+                    </a>
+                    <a href="https://demo.jerryly.cn" class="subdomain-link">
+                        <div class="subdomain" id="subdomain-3">
+                            <span>
+                                <span class="material-symbols-outlined">web_stories</span>demo
+                            </span>
+                            <p class="text-n">Live preview of projects I've been working on. Please only visit when
+                                advised to.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://blog.jerryly.cn" class="subdomain-link">
+                        <div class="subdomain" id="subdomain-2">
+                            <span>
+                                <span class="material-symbols-outlined">chat</span>blog
+                            </span>
+                            <p class="text-n">Jerry's blog that hasn't been updated for a year now.</p>
+                        </div>
+                    </a>
+                    <div class="subdomain" id="subdomain-4">
+                        <a href="https://old.jerryly.cn"><span>
+                                <span class="material-symbols-outlined">history</span>old
+                            </span></a>
+                        <p class="text-n">Contents that are published prior to 2025 and no longer maintained. Click to
+                            learn
+                            more.</p>
+                        <ul>
+                            <a href="https://old.jerryly.cn/pages/about">
+                                <li>
+                                    about
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/apple">
+                                <li>
+                                    apple
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/christmas">
+                                <li>
+                                    christmas
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/classical_ch">
+                                <li>
+                                    classical_ch
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/classical_ch_sh">
+                                <li>
+                                    classical_ch_sh
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/contact">
+                                <li>
+                                    contact
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/develop">
+                                <li>
+                                    develop
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/flashback">
+                                <li>
+                                    flashback
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/friends">
+                                <li>
+                                    friends
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/gallery">
+                                <li>
+                                    gallery
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/homemade_giftcard">
+                                <li>
+                                    homemade_giftcard
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/music">
+                                <li>
+                                    music
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/noticeboard">
+                                <li>
+                                    noticeboard
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/search">
+                                <li>
+                                    search
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/survey">
+                                <li>
+                                    survey
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                            <a href="https://old.jerryly.cn/pages/taylorswift">
+                                <li>
+                                    taylorswift
+                                    <span class="file-type">html file</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="m-copyright">© Jerry's Studio 江源工作室 2019-2025</div>
         </div>
     </header>
+
     <main>
         {% block content %}{% endblock %}
     </main>
+
     <footer id="copyright-info">
         <p class="copyright-info" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a
                 property="dct:title" rel="cc:attributionURL" href="https://jerryly.top">The website
@@ -92,287 +218,43 @@
             </a>
         </p>
     </footer>
+
     <script>
-        $("#turnstile").click(() => {
-            $("#turnstile").addClass("expanded");
-            $("#content-unit").addClass("displaced");
+        $("#menu").click(() => {
+            $("#menu").addClass("expanded");
+            $("#content-unit").addClass("shifted");
         });
 
-        $(document).click(function (event) {
-            if (!$(event.target).closest("#turnstile").length) {
-                $("#turnstile").removeClass("expanded");
-                $("#content-unit").removeClass("displaced");
+        $(document).click((e) => {
+            if (!e.target.closest("#menu")) {
+                $("#menu").removeClass("expanded");
+                $("#content-unit").removeClass("shifted");
             }
         });
 
-        const today = new Date();
-        const month = today.getMonth() + 1;
-        const date = today.getDate();
-        const hour = today.getHours();
-        function updateWelcomeMessage() {
+        function updateWelcomeMsg() {
+            const welcomeMsg = document.getElementById("welcome");
             const now = new Date();
-            if (now.getHours() < 18) {
-                document.getElementById("welcome").innerText = "Bonjour";
+            if (now.getHours < 5) {
+                welcomeMsg.innerText = "bonne nuit";
+            } else if (now.getHours < 18) {
+                welcomeMsg.innerText = "bonjour";
             } else {
-                document.getElementById("welcome").innerText = "Bonsoir";
+                welcomeMsg.innerText = "bonsoir";
             }
         }
-        setInterval(() => {
-            updateWelcomeMessage();
-        }, 1000);
 
-        if (window.location.href.includes("https://jerryly.top")) {
-            document.querySelector(".home-button").classList.add("active");
-        } else if (window.location.href.includes("https://old.jerryly.top")) {
-            document.querySelector(".history-button").classList.add("active");
-        } else if (window.location.href.includes("https://blog.jerryly.top")) {
-            document.querySelector(".chat-button").classList.add("active");
-        } else if (window.location.href.includes("https://demo.jerryly.top")) {
-            document.querySelector(".web-stories-button").classList.add("active");
-        }
+        $(document).ready(updateWelcomeMsg);
 
-        $(".home-button").hover(
-            function () {
-                $(this).addClass("highlighted");
-                $("#home-button").css("font-weight", "700");
-            },
-            function () {
-                $(this).removeClass("highlighted");
-                $("#home-button").css("font-weight", "300");
-            }
-        );
-
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".home-button").length) {
-                $(".home-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".home-button").length) {
-                $(".home-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(".home-button").click(function () {
-            $("#cloth").html(`
-            <div id="welcome">bonjour</div>
-            <p id="text-n">You're now browsing jerryly.top.</p>
-            <div id="cloth-subtitle">
-                A work in progress
-            </div>
-            <p id="text-n">is not just a phrase often seen in excuses, it's also what this website is currently.</p>
-            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
-        `);
-        });
-
-        $(".history-button").hover(
-            function () {
-                $(this).addClass("highlighted");
-                $("#history-button").css("font-weight", "700");
-            },
-            function () {
-                $(this).removeClass("highlighted");
-                $("#history-button").css("font-weight", "300");
-            }
-        );
-
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".history-button").length) {
-                $(".history-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".history-button").length) {
-                $(".history-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(".history-button").click(function () {
-            $("#cloth").html(`
-            <div id="cloth-subtitle">
-                Legacy site contains
-            </div>
-            <ul>
-                <a href="https://old.jerryly.top/pages/about">
-                    <li>
-                        about
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/apple">
-                    <li>
-                        apple
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/christmas">
-                    <li>
-                        christmas
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/classical_ch">
-                    <li>
-                        classical_ch
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/classical_ch_sh">
-                    <li>
-                        classical_ch_sh
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/contact">
-                    <li>
-                        contact
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/develop">
-                    <li>
-                        develop
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/flashback">
-                    <li>
-                        flashback
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/friends">
-                    <li>
-                        friends
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/gallery">
-                    <li>
-                        gallery
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/homemade_giftcard">
-                    <li>
-                        homemade_giftcard
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/music">
-                    <li>
-                        music
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/noticeboard">
-                    <li>
-                        noticeboard
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/search">
-                    <li>
-                        search
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/survey">
-                    <li>
-                        survey
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-                <a href="https://old.jerryly.top/pages/taylorswift">
-                    <li>
-                        taylorswift
-                        <span class="file-type">html file</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </li>
-                </a>
-            </ul>
-            <span class="file-type">Note that as of Feb 7 2025 the legacy site has stopped updating.</span>
-        `);
-        });
-
-
-        $(".chat-button").hover(
-            function () {
-                $(this).addClass("highlighted");
-                $("#chat-button").css("font-weight", "700");
-            },
-            function () {
-                $(this).removeClass("highlighted");
-                $("#chat-button").css("font-weight", "300");
-            }
-        );
-
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".chat-button").length) {
-                $(".chat-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".chat-button").length) {
-                $(".chat-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(".chat-button").click(function () {
-            $("#cloth").html(`
-            <div id="cloth-subtitle">
-                My blog
-            </div>
-            <p id="text-n">contains entries spanning from 3 years ago to 1 year ago. I should probably update more often.</p>
-            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
-        `);
-        });
-
-        $(".web-stories-button").hover(
-            function () {
-                $(this).addClass("highlighted");
-                $("#web-stories-button").css("font-weight", "700");
-            },
-            function () {
-                $(this).removeClass("highlighted");
-                $("#web-stories-button").css("font-weight", "300");
-            }
-        );
-
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".web-stories-button").length) {
-                $(".web-stories-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(document).click(function (event) {
-            if (!$(event.target).closest(".web-stories-button").length) {
-                $(".web-stories-button").removeClass("highlighted").css("font-weight", "300");
-            }
-        });
-        $(".web-stories-button").click(function () {
-            $("#cloth").html(`
-            <div id="cloth-subtitle">
-                Project demo
-            </div>
-            <p id="text-n">contains project or models in test. Only visit this site when advised to.</p>
-            <p id="text-n" class="cloth-smaller">If you see anything I should note, <a href="mailto:jerrylovesapple@icloud,com">email me.</a></p>
-        `);
+        $("#subdomain-4").click(() => {
+            $("#subdomain-1").toggleClass("shrink");
+            $("#subdomain-2").toggleClass("shrink");
+            $("#subdomain-3").toggleClass("shrink");
+            $(".subdomain-link").toggleClass("shrink");
+            $("#location-indicator").toggleClass("widen");
+            $("#m-copyright").toggleClass("hidden");
         });
     </script>
-
-
 </body>
 
 </html>
