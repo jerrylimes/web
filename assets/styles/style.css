@@ -104,243 +104,174 @@ svg {
     src: url(../fonts/SourceHanSansCN-Bold-min.woff2);
 }
 
-#menu {
-    width: 36px;
-    height: calc(100vh - 20px);
+#simple-wrapper {
+    width: 100%;
+    height: 44px;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 10px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    transition: all 0.4s cubic-bezier(0, 1, 0, 1.03);
+    overflow: hidden;
     z-index: 3;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1.05);
     font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#menu::-webkit-scrollbar {
-    width: 0;
+#simple-wrapper.expanded {
+    height: 70vh;
+    background-color: black;
 }
 
-#logo-link {
-    display: block;
-    width: 24px;
+#simple-wrapper.expanded #simple-list {
+    height: calc(70vh - 104px);
+    padding: 20px;
 }
 
-#logo-wrapper {
-    width: 24px;
-    padding: 6px;
-    border-radius: 8px;
-}
-
-#logo-wrapper:hover {
-    background-color: #f0f0f0;
-}
-
-#logo {
-    width: 24px;
-    height: 24px;
-    background-image: url(../images/logo-button-light.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.5;
-    transition: all 0.2s cubic-bezier(0, 1, 0, 1);
-}
-
-#menu:hover #logo {
-    opacity: 1;
-}
-
-#menu.expanded {
-    width: 300px;
-}
-
-#menu.expanded #logo {
-    opacity: 1;
-}
-
-#location-indicator {
-    width: 0;
-    overflow: hidden;
+#simple-list {
+    height: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
     padding: 0px;
+    color: white;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1.05);
 }
 
-.subdomain {
-    max-width: 113px;
-    border: solid 1px #eee;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    overflow: hidden;
+#simple-list::-webkit-scrollbar {
+    width: 0;
 }
 
-.subdomain span {
+#simple {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1.05);
 }
 
-#menu a {
+#simple-wrapper.expanded #simple {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#logo-wrapper {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+#logo-wrapper:hover {
+    background-color: black;
+}
+
+#logo-wrapper:hover #logo,
+#simple-wrapper.expanded #logo {
+    background-image: url(../images/logo-button-dark.svg);
+}
+
+#simple-wrapper.expanded #link-wrapper,
+#simple-wrapper.expanded #newsflash {
+    color: white;
+}
+
+#simple-wrapper.expanded #logo-wrapper:hover {
+    background-color: white;
+}
+
+#simple-wrapper.expanded #logo-wrapper:hover #logo {
+    background-image: url(../images/logo-button-light.svg);
+}
+
+#link-wrapper a {
+    color: unset;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+#newsflash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    transition: all 0.2s;
+}
+
+#newsflash span {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#newsflash:hover {
+    background-color: black;
+    color: white;
+}
+
+#simple-wrapper.expanded #newsflash:hover {
+    background-color: white;
+    color: black;
+}
+
+#logo {
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/logo-button-light.svg);
+    background-size: cover;
+}
+
+.simple-list-title {
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.simple-list-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+@media (max-width: 1024px) {
+    .simple-list-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .file-type {
+        display: none;
+    }
+
+    .simple-list-list a li {
+        grid-template-columns: 1fr 1.5em !important;
+    }
+}
+
+.simple-list-list a {
     text-decoration: none;
     color: unset;
 }
 
-#menu.expanded #location-indicator {
-    width: calc(300px - 20px);
+.simple-list-list a li {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
-    padding: 10px;
-}
-
-#menu.expanded #location-indicator div {
-    margin-bottom: 10px;
-}
-
-#menu.expanded #logo-wrapper {
-    width: 44px;
-    height: 44px;
-    padding: 10px;
-}
-
-#menu.expanded #logo {
-    width: 44px;
-    height: 44px;
-}
-
-#content-unit {
-    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.05);
-}
-
-#content-unit.shifted {
-    margin-left: 310px;
-    filter: blur(0.5em);
-}
-
-.text-n {
-    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    grid-template-columns: 1fr 7em 2em;
+}
+
+.simple-list-list .file-type {
     font-weight: normal;
 }
 
-#welcome {
-    display: none;
-}
-
-#menu.expanded #welcome {
-    display: block;
-    padding-left: 10px;
-    font-weight: light;
-    font-size: 22px;
-}
-
-#call {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#welcome {
-    padding-right: 10px;
-}
-
-#location-indicator a:hover .subdomain {
-    background-color: #eee;
-}
-
-#subdomain-4:hover {
-    background-color: #eee;
-}
-
-.subdomain.shrink,
-.subdomain-link.shrink {
-    display: block;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-#location-indicator.widen {
-    grid-template-columns: 1fr !important;
-}
-
-#location-indicator.widen div:first-child {
-    margin-bottom: 0 !important;
-}
-
-#location-indicator.widen .subdomain {
-    max-width: 280px;
-}
-
-#subdomain-4 ul {
-    display: none;
-}
-
-#location-indicator.widen #subdomain-4 ul {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    grid-template-columns: 1fr;
-    overflow: hidden;
-}
-
-#subdomain-4 span:not(:first-child) {
-    display: block;
-    padding: 2px;
-}
-
-#subdomain-4 li {
-    list-style: none;
-    padding: 2px;
-    padding-left: 0;
-    border-bottom: 1px solid transparent;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.5em;
-    transition: all 0.2s;
-    font-size: 14px;
-    font-weight: normal;
-}
-
-#subdomain-4 a {
-    text-decoration: none;
-}
-
-#subdomain-4 li:hover {
-    font-weight: bold;
-}
-
-#subdomain-4 li:hover .material-symbols-outlined {
-    font-weight: bold;
-}
-
-#subdomain-4 .material-symbols-outlined:not(:first-child) {
-    transition: all 0.2s;
+.simple-list-list a li .material-symbols-outlined {
     font-size: 18px;
-}
-
-.file-type {
-    opacity: 0.5;
-    font-size: 14px;
-}
-
-#m-copyright {
-    padding: 10px;
-    font-size: 14px;
-    opacity: 0.5;
-    position: absolute;
-    bottom: 6px;
-    display: none;
-}
-
-#menu.expanded #m-copyright {
-    display: block;
-}
-
-#menu.expanded #m-copyright.hidden {
-    display: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -348,25 +279,23 @@ svg {
         background-image: url(../images/logo-button-dark.svg);
     }
 
-    .subdomain {
-        border-color: #333;
-    }
-
-    #location-indicator a:hover .subdomain,
-    #subdomain-4:hover {
-        background-color: #333;
+    #newsflash:hover {
+        background-color: white;
+        color: black;
     }
 
     #logo-wrapper:hover {
-        background-color: #242424;
+        background-color: white;
+    }
+
+    #logo-wrapper:hover #logo {
+        background-image: url(../images/logo-button-light.svg);
     }
 }
 
 #copyright-info {
-    font-family: 'Figtree', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: lighter;
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
-    margin-left: 40px;
     transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.05);
 }
 
