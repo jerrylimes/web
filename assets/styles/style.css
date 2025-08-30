@@ -253,7 +253,8 @@ svg {
     }
 }
 
-.simple-list-list a {
+.simple-list-list a,
+#simple a {
     text-decoration: none;
     color: unset;
 }
