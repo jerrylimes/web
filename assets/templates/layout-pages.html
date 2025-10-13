@@ -273,6 +273,7 @@
     </main>
     <script>
         $("#logo-wrapper").click(() => {
+            $("#drawer").addClass("expanded");
             $("#container").addClass("show");
             $("#blinds-top").addClass("show");
             $("#blinds-bottom").addClass("show");
@@ -281,6 +282,7 @@
 
         $(document).click((e) => {
             if (!$(e.target).closest("#drawer, #logo-wrapper").length) {
+                $("#drawer").removeClass("expanded");
                 $("#container").removeClass("show");
                 $("#logo-wrapper").removeClass("displace");
                 $("#blinds-top").removeClass("show");
