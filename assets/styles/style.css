@@ -102,404 +102,220 @@
     src: url(../fonts/SourceHanSansCN-Bold-min.woff2);
 }
 
+@font-face {
+    font-family: 'Modern DOS 8x16';
+    font-weight: normal;
+    font-style: normal;
+    src: url(https://media.jerryly.cn/ModernDOS8x16.ttf);
+}
+
+/* general styles */
+
 body {
     margin: 0;
 }
 
-#board {
+#directory {
+    width: 199px;
+    height: calc(100% - 16px);
+    padding: 8px;
+    transition: all 0.3s cubic-bezier(0, 0.8, 0, 1);
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 3;
+    border-right: solid 1px #eee;
+    background-color: #f8f8f8;
 }
 
-#board.activate {
-    overflow: hidden;
+#directory.active {
+    width: 144px;
+    height: 40px;
+    background-color: transparent;
+    border-right: none;
 }
 
-#handle {
-    width: 100%;
-    height: 50px;
+#directory.active #sitemap {
+    height: 0;
+}
+
+#nav-tools {
+    width: fit-content;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    transition: all 0.2s;
+    background-color: rgb(247, 247, 247);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 40px;
+    gap: 6px;
 }
 
-#handle.exited {
-    border-bottom: solid 1px #eee;
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(0.5em);
+#directory-logo {
+    width: fit-content;
+    padding: 8px;
+    border-radius: 60px;
 }
 
-#handle-backdrop {
-    width: 100%;
-    height: 50px;
+#logo {
+    height: 24px;
     overflow: hidden;
-    background-image: url(https://media.jerryly.cn/rect4581.png);
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    opacity: 1;
-    transition: all 0.2s;
-    position: absolute;
-    z-index: -1;
-}
-
-#handle.exited #handle-backdrop {
-    opacity: 0;
-}
-
-#handle:hover #handle-backdrop {
-    opacity: 0.5;
-}
-
-#handle.exited:hover #handle-backdrop {
-    opacity: 0;
-}
-
-#handle-content {
-    width: calc(100% - 10px);
-    padding-left: 5px;
-    padding-right: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#handle.exited #handle-content {
-    justify-content: space-between;
-    z-index: 1;
-}
-
-#handle.exited #handle-separator {
-    display: none;
-}
-
-#handle-logo-wrapper {
-    padding: 6px;
-    border-radius: 10px;
-    transition: all 0.2s;
-}
-
-#handle-logo {
     aspect-ratio: 150/67;
-    height: 30px;
     background-image: url(https://media.jerryly.cn/home-button-light.svg);
     background-repeat: no-repeat;
 }
 
-#handle-separator {
-    width: 1px;
-    height: 20px;
-    background-color: #333;
-    margin-left: 5px;
-    margin-right: 5px;
+#sitemap {
+    height: calc(100% - 34px);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
-#handle-direct {
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#sitemap::webkit-scrollbar {
+    width: 0;
 }
 
-#handle-direct a {
-    text-decoration: none;
-    color: unset;
-    border-radius: 10px;
-    padding: 10px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    transition: all 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#handle-direct a:hover,
-#handle-logo-wrapper:hover,
-#basement-content-layer ul li:hover {
-    background-color: #ffffff;
-    box-shadow: 0 4px 4px hsl(0deg 0% 0% / 0.025),
-        0 8px 8px hsl(0deg 0% 0% / 0.025),
-        0 16px 16px hsl(0deg 0% 0% / 0.025),
-        0 32px 32px hsl(0deg 0% 0% / 0.025);
-}
-
-#handle-direct a .material-symbols-outlined {
-    font-weight: 300;
-}
-
-.handle-direct-label {
-    margin-left: 0px;
-    width: fit-content;
-    max-width: 0;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0, 0.8, 0, 1);
-}
-
-#handle-direct a:hover .handle-direct-label {
-    margin-left: 6px;
-    width: fit-content;
-    max-width: 4em;
-}
-
-#basement {
-    width: 100%;
-    height: 0;
-    padding: 0;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(0.5em);
-    transition: all 0.4s cubic-bezier(0, 1, 0, 1.03);
-}
-
-#basement-backdrop {
-    overflow: hidden;
-}
-
-#basement-content-layer {
-    width: calc(100% - 40px);
-    height: 0;
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
-    transition: all 0.2s;
+#sitemap.expanded {
     opacity: 0;
 }
 
-#basement.entered #basement-content-layer {
-    height: fit-content;
-    max-height: 100vh;
-    opacity: 1;
-    padding: 20px;
+#directory-back-button .material-symbols-outlined {
+    font-size: 28px;
 }
 
-#basement-input {
-    border: none;
-    border-radius: 12px;
-    padding: 14px;
-    box-shadow: 0 4px 4px hsl(0deg 0% 0% / 0.025),
-        0 8px 8px hsl(0deg 0% 0% / 0.025),
-        0 16px 16px hsl(0deg 0% 0% / 0.025),
-        0 32px 32px hsl(0deg 0% 0% / 0.025);
-    margin-bottom: 20px;
-    background-color: white;
-    display: flex;
-    width: calc(100% - 28px);
-    justify-content: space-between;
-    align-items: center;
-}
-
-#basement-input section {
-    width: calc(100% - 68px);
-    min-width: 50%;
-}
-
-#basement-input input,
-#basement-input textarea {
-    border: none;
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-size: 14px;
-    resize: none;
-    width: 100%;
-}
-
-#basement-input textarea {
-    height: 1em;
-    font-weight: normal;
-}
-
-#basement-button {
-    border: none;
-    background-color: black;
-    color: white;
-    width: 40px;
-    height: 40px;
+#directory-back-button,
+#directory-expand {
+    width: 28px;
+    height: 28px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.5;
 }
 
-#basement-backdrop-pause {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    font-weight: normal;
-    background-color: transparent;
-    border: none;
+#directory-expand {
+    margin-right: 6px;
 }
 
-.basement-circle {
-    width: 800px;
-    height: 800px;
-    border-radius: 600px;
-    filter: blur(100px);
-    background-image: radial-gradient(circle at top, #fff 20%, #00d3d8, #7dbfff);
-    animation: bubble 5s infinite alternate;
-    position: absolute;
-    z-index: -2;
-    overflow: hidden;
-    transition: all 0.2s;
-    display: none;
+#directory-expand .material-symbols-outlined {
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(45deg);
 }
 
-.basement-circle.move {
-    display: block;
+#directory-expand.rotated .material-symbols-outlined {
+    transform: rotate(0deg);
 }
 
-.basement-label {
+#directory-back-button .material-symbols-outlined,
+#directory-expand .material-symbols-outlined {
+    font-weight: 300;
+}
+
+.directory-map {
     font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    padding-left: 8px;
-}
-
-#basement-content-layer hr {
-    background-color: transparent;
-    border: none;
-    margin-bottom: 300px;
-}
-
-@keyframes bubble {
-    0% {
-        top: -1000px;
-        transform: rotate(0deg);
-    }
-
-    100% {
-        top: -100px;
-        transform: rotate(340deg);
-    }
-}
-
-.simple-list-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    list-style: none;
-    width: calc(100% - 40px);
-    height: 0;
-    max-height: 0;
     padding-left: 0;
-    z-index: 1;
+    font-size: 14px;
+}
+
+.directory-map li .material-symbols-outlined {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.directory-map-secondary {
     font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-left: solid 1px #eee;
+    margin-left: 16px;
+    padding-left: 8px;
+    font-size: 14px;
 }
 
-#basement.entered .simple-list-list {
-    height: fit-content;
-    max-height: 100vh;
+.directory-map-secondary.special {
+    border-left-color: transparent;
 }
 
-.simple-list-list a,
-#simple a {
+.directory-map-secondary span {
+    opacity: 0.5;
+    margin-left: 6px;
+    font-size: 12px;
+}
+
+.directory-map-secondary a {
+    display: block;
+    width: fit-content;
     text-decoration: none;
     color: unset;
-    width: fit-content;
 }
 
-.simple-list-list a li {
-    font-size: 14px;
+#directory ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+#directory ul li {
     display: flex;
-    justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     border-radius: 6px;
-    transition: all 0.2s;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
     width: fit-content;
+    padding: 6px;
 }
 
-.simple-list-list svg {
-    width: 1.3em;
-    height: 1.3em;
+#directory-back-button:hover,
+#directory-expand:hover,
+#directory ul li:hover,
+.directory-map.secondary li:hover,
+#directory-logo:hover {
+    background-color: #eee;
 }
 
-.simple-list-list .file-type {
-    font-weight: normal;
-    display: none;
+#directory button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
 }
 
-.simple-list-list a li .material-symbols-outlined {
-    font-size: 18px;
+.directory-slash {
+    width: 20px;
+    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
 }
 
 @media (prefers-color-scheme: dark) {
-    #handle-backdrop {
-        background-image: url(https://media.jerryly.cn/rect4581-dark.png);
+    #directory {
+        border-right: solid 1px #333;
+        background-color: #2c2c2c;
     }
 
-    #handle-logo {
+    #nav-tools {
+        background-color: #2c2c2c;
+    }
+
+    #logo {
         background-image: url(https://media.jerryly.cn/home-button-dark.svg);
     }
 
-    #handle-separator {
-        background-color: #eee;
+    #directory-back-button:hover,
+    #directory-expand:hover,
+    #directory ul li:hover,
+    .directory-map.secondary li:hover,
+    #directory-logo:hover {
+        background-color: #5a5a5a;
     }
 
-    #handle-direct a:hover,
-    #handle-logo-wrapper:hover,
-    #basement-content-layer ul li:hover {
-        background-color: #333;
-    }
-
-    #handle.exited {
-        border-bottom-color: #333;
-        background-color: rgba(12, 12, 12, 0.7);
-    }
-
-    #basement {
-        background-color: rgba(12, 12, 12, 0.7);
-    }
-
-    .basement-circle {
-        background-image: radial-gradient(circle at top, #000000 20%, hsl(181, 100%, 32%), hsl(210, 100%, 65%));
-    }
-
-    #basement-input {
-        background-color: rgb(59, 59, 59);
-    }
-
-    #basement-input #basement-button {
-        background-color: #fff;
-        color: black;
-    }
-
-    .simple-list-list svg {
-        fill: white;
+    .directory-map-secondary {
+        border-left-color: #5a5a5a;
     }
 }
-
-@media (max-width: 768px) {
-    #basement-content-layer {
-        overflow-x: hidden;
-        overflow-y: scroll;
-    }
-
-    .simple-list-list {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 430px) {
-    .simple-list-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* general styles */
 
 .text-n {
     font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -507,19 +323,27 @@ body {
 }
 
 #copyright-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
     font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
-    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.05);
-}
-
-#copyright-info.shifted {
-    margin-left: 310px;
-    filter: blur(0.5em);
+    font-weight: normal;
 }
 
 #copyright-info a {
     text-decoration: none;
+    color: unset;
 }
+
+#footer-links {
+    margin-top: 0;
+}
+
+/* general styles */
 
 #content-unit {
     font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
