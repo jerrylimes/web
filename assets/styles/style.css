@@ -361,6 +361,26 @@ body {
     height: 100vh;
 }
 
+#en-warn {
+    font-size: 14px;
+    border: solid 1px #eee;
+    border-radius: 6px;
+    width: fit-content;
+    padding: 6px;
+}
+
+#en-warn-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+    #en-warn {
+        border-color: #333;
+    }
+}
+
 /* about.html */
 
 #alu-stu-namecard>#text-n {
@@ -940,22 +960,30 @@ td {
 
 .breaking {
     color: #cc0700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pages-container.taylorswift {
+    padding-left: 10px;
 }
 
 #album-shelf {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
-    margin-right: 30px;
+    margin: 4px;
+}
+
+#album-shelf a {
+    width: 100%;
 }
 
 .album {
-    width: 200px;
-    height: 200px;
-    aspect-ratio: 1/1;
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-bottom: 30px;
+    width: 100%;
+    height: 60px;
+    border-radius: 6px;
+    margin-bottom: 6px;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -976,48 +1004,72 @@ td {
     transform: scale(97.5%);
 }
 
+#album-16 {
+    background-color: rgb(102, 152, 189);
+}
+
+#album-15 {
+    background-color: rgb(172, 26, 72);
+}
+
+#album-14 {
+    background-color: rgb(151, 47, 112);
+}
+
+#album-13 {
+    background-color: rgb(210, 179, 145);
+}
+
+#album-12 {
+    background-color: rgb(215, 82, 41);
+}
+
 #album-11 {
-    background-image: url(../static/img/IMG_7163.webp);
+    background-color: rgb(241, 235, 233);
+}
+
+#album-title-11 {
+    color: rgb(92, 85, 80);
 }
 
 #album-10 {
-    background-image: url(../static/img/592x592bb.webp);
+    background-color: rgb(137, 168, 186);
 }
 
 #album-9 {
-    background-image: url(../static/img/592x592bb\ \(1\).webp);
+    background-color: rgb(119, 79, 52);
 }
 
 #album-8 {
-    background-image: url(../static/img/592x592bb\ \(2\).webp);
+    background-color: rgb(169, 169, 169);
 }
 
 #album-7 {
-    background-image: url(../static/img/592x592bb\ \(3\).webp);
+    background-color: rgb(253, 173, 194);
 }
 
 #album-6 {
-    background-image: url(../static/img/592x592bb\ \(4\).webp);
+    background-color: rgb(69, 69, 69);
 }
 
 #album-5 {
-    background-image: url(../static/img/592x592bb\ \(5\).webp);
+    background-color: rgb(28, 141, 255);
 }
 
 #album-4 {
-    background-image: url(../static/img/592x592bb\ \(6\).webp);
+    background-color: rgb(160, 30, 21);
 }
 
 #album-3 {
-    background-image: url(../static/img/592x592bb\ \(7\).webp);
+    background-color: rgb(115, 47, 112);
 }
 
 #album-2 {
-    background-image: url(../static/img/592x592bb\ \(8\).webp);
+    background-color: rgb(185, 155, 109);
 }
 
 #album-1 {
-    background-image: url(../static/img/592x592bb\ \(9\).webp);
+    background-color: rgb(115, 198, 166);
 }
 
 .album-title {
