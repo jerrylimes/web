@@ -915,32 +915,14 @@ td {
     font-weight: 1000;
 }
 
-@media (max-width: 425px) {
-
-    #taylor-swift-album-list,
-    .taylor-swift-album {
-        margin-left: 30px !important;
-        margin-right: 30px !important;
-    }
-
-    .album {
-        width: 110px !important;
-        height: 110px !important;
-    }
-
-    .album-title {
-        font-size: 13px !important;
-    }
-}
-
 @media (prefers-color-scheme: dark) {
     #pages-container-1 {
-        background-color: black !important;
+        background-color: transparent !important;
     }
 
     #pages-backdrop,
     #en-warn {
-        background-color: unset !important;
+        background-color: rgb(69, 69, 69) !important;
     }
 }
 
@@ -1550,7 +1532,6 @@ td {
     border-radius: 12px;
     border-width: 0 0 4px;
     box-sizing: border-box;
-    color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
     margin: 0;
