@@ -12,7 +12,7 @@
     <meta name="algolia-site-verification" content="9A311D0F6B2164C8" />
     <title>so I have this website...</title>
     <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='scripts/script-subpages.js') }}"></script>
+    <link rel="stylesheet" href="https://media.jerryly.cn/general.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -22,178 +22,252 @@
 </head>
 
 <body>
-    <header id="directory">
-        <div id="nav-tools">
+    <header id="boilerplate">
+        <div id="navigation-buttons">
             <a href="https://jerryly.cn">
-                <div id="directory-logo">
-                    <div id="logo"></div>
-                </div>
+                <div id="home"></div>
             </a>
-            <button id="directory-back-button">
-                <span class="material-symbols-outlined">chevron_backward</span>
-            </button>
-            <button id="directory-expand">
-                <span class="material-symbols-outlined">add_circle</span>
-            </button>
+            <div id="where-do-we-place-these-buttons">
+                <div class="navigation-button" id="back">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 12.3926 16.9629">
+                        <g>
+                            <rect height="16.9629" opacity="0" width="12.3926" x="0" y="0" />
+                            <path
+                                d="M0 8.47656C0 8.7207 0.0878906 8.93555 0.273438 9.12109L8.01758 16.6895C8.18359 16.8652 8.39844 16.9531 8.65234 16.9531C9.16016 16.9531 9.55078 16.5723 9.55078 16.0645C9.55078 15.8105 9.44336 15.5957 9.28711 15.4297L2.17773 8.47656L9.28711 1.52344C9.44336 1.35742 9.55078 1.13281 9.55078 0.888672C9.55078 0.380859 9.16016 0 8.65234 0C8.39844 0 8.18359 0.0878906 8.01758 0.253906L0.273438 7.83203C0.0878906 8.00781 0 8.23242 0 8.47656Z"
+                                fill="black" fill-opacity="0.85" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="navigation-button" id="menu">
+                    <span class="material-symbols-outlined">menu</span>
+                </div>
+            </div>
         </div>
-        <div id="sitemap">
-            <ul class="directory-map">
-                <li>
-                    <span class="material-symbols-outlined">directions_run</span>live
-                    <a href="https://live.jerryly.cn">
-                        <span class="directory-slash">/</span>
+        <div id="boiler-clock">
+            <span id="boiler-clock-filler"></span>
+            <span id="boiler-clock-hour"></span><span id="boiler-clock-colon">:</span><span
+                id="boiler-clock-minute"></span><span id="boiler-clock-colon">:</span><span
+                id="boiler-clock-second"></span>
+        </div>
+        <div id="bookmarks">
+            <div id="sitemap">
+                <ul class="sitemap-title" id="sitemap-title-1">
+                    <li>
+                        <span class="material-symbols-outlined">home</span> This site
+                        <a href="./">
+                            <span class="sitemap-slash">/</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sitemap-links" id="sitemap-link-1">
+                    <a href="https://jerryly.cn/pages/gallery">
+                        <li>
+                            Gallery
+                        </li>
                     </a>
-                </li>
-            </ul>
-            <ul class="directory-map-secondary special">
-                <span>Real-time updates and news.</span>
-            </ul>
-            <ul class="directory-map">
-                <li>
-                    <span class="material-symbols-outlined">history</span>old
-                    <a href="https://old.jerryly.cn">
-                        <span class="directory-slash">/</span>
+                </ul>
+                <ul class="sitemap-title" id="sitemap-title-2">
+                    <li>
+                        <span class="material-symbols-outlined">campaign</span> Live
+                        <a href="https://live.jerryly.cn">
+                            <span class="sitemap-slash">/</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sitemap-links" id="sitemap-link-2">
+                    <a href="https://live.jerryly.cn/pages/calculator">
+                        <li>
+                            Calculator
+                        </li>
                     </a>
-                </li>
-            </ul>
-            <ul class="directory-map-secondary">
-                <span>Archived pages of the site.</span>
-                <a href="https://old.jerryly.cn/pages/about">
-                    <li>
-                        about
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/apple">
-                    <li>
-                        apple
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/christmas">
-                    <li>
-                        christmas
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/classical_ch">
-                    <li>
-                        classical_ch
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/classical_ch_sh">
-                    <li>
-                        classical_ch_sh
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/contact">
-                    <li>
-                        contact
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/develop">
-                    <li>
-                        develop
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/flashback">
-                    <li>
-                        flashback
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/friends">
-                    <li>
-                        friends
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/gallery">
-                    <li>
-                        gallery
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/homemade_giftcard">
-                    <li>
-                        homemade_giftcard
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/music">
-                    <li>
-                        music
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/noticeboard">
-                    <li>
-                        noticeboard
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/search">
-                    <li>
-                        search
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/survey">
-                    <li>
-                        survey
-                    </li>
-                </a>
-                <a href="https://old.jerryly.cn/pages/taylorswift">
-                    <li>
-                        taylorswift
-                    </li>
-                </a>
-            </ul>
-            <ul class="directory-map">
-                <li>
-                    <span class="material-symbols-outlined">cards_stack</span>blog
-                    <a href="https://blog.jerryly.cn">
-                        <span class="directory-slash">/</span>
+                    <a href="https://live.jerryly.cn/pages/news">
+                        <li>
+                            News
+                        </li>
                     </a>
-                </li>
-            </ul>
-            <ul class="directory-map-secondary">
-                <span>Blog pages.</span>
-                <li><a href="https://blog.jerryly.cn/index.html">Home</a></li>
-                <li><a href="https://blog.jerryly.cn/20240604.html">Jun 4 2024</a></li>
-                <li><a href="https://blog.jerryly.cn/20241004.html">Oct 4 2024</a></li>
-                <li><a href="https://blog.jerryly.cn/20241128.html">Nov 28 2024</a></li>
-                <li><a href="https://blog.jerryly.cn/20250103.html">Jan 3 2025</a></li>
-                <li><a href="https://blog.jerryly.cn/20241123.html">Jan 4 2025</a></li>
-                <li><a href="https://blog.jerryly.cn/20250121.html">CS 2130 Lab 01</a></li>
-                <li><a href="https://blog.jerryly.cn/markdown/CS2100-Notes.html">CS 2100 Notes</a></li>
-            </ul>
-            <ul class="directory-map">
-                <li>
-                    <span class="material-symbols-outlined">play_arrow</span>demo
-                    <a href="https://demo.jerryly.cn">
-                        <span class="directory-slash">/</span>
+                    <a href="https://live.jerryly.cn/pages/site-status">
+                        <li>
+                            Site status
+                        </li>
                     </a>
-                </li>
-            </ul>
-            <ul class="directory-map-secondary special">
-                <span>Ongoing project tests.</span>
-            </ul>
-            <br><br><br><br>
+                </ul>
+                <ul class="sitemap-title" id="sitemap-title-3">
+                    <li>
+                        <span class="material-symbols-outlined">history</span> Archived
+                        <a href="https://old.jerryly.cn">
+                            <span class="sitemap-slash">/</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sitemap-links" id="sitemap-link-3">
+                    <a href="https://old.jerryly.cn/pages/about">
+                        <li>
+                            about
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/apple">
+                        <li>
+                            apple
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/christmas">
+                        <li>
+                            christmas
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/classical_ch">
+                        <li>
+                            classical_ch
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/classical_ch_sh">
+                        <li>
+                            classical_ch_sh
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/contact">
+                        <li>
+                            contact
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/develop">
+                        <li>
+                            develop
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/flashback">
+                        <li>
+                            flashback
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/friends">
+                        <li>
+                            friends
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/gallery">
+                        <li>
+                            gallery
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/homemade_giftcard">
+                        <li>
+                            homemade_giftcard
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/music">
+                        <li>
+                            music
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/noticeboard">
+                        <li>
+                            noticeboard
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/search">
+                        <li>
+                            search
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/survey">
+                        <li>
+                            survey
+                        </li>
+                    </a>
+                    <a href="https://old.jerryly.cn/pages/taylorswift">
+                        <li>
+                            taylorswift
+                        </li>
+                    </a>
+                </ul>
+                <ul class="sitemap-title" id="sitemap-title-4">
+                    <li>
+                        <span class="material-symbols-outlined">cards_stack</span> Blog
+                        <a href="https://blog.jerryly.cn">
+                            <span class="sitemap-slash">/</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sitemap-title" id="sitemap-title-5">
+                    <li>
+                        <span class="material-symbols-outlined">play_arrow</span> Demo
+                        <a href="https://demo.jerryly.cn">
+                            <span class="sitemap-slash">/</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
+
     <main>
         {% block content %}{% endblock %}
-        <div id="script-container"></div>
     </main>
+
+
+    <div id="copyright-info">
+        <p class="copyright-info">
+            版权所有 © 2026 Jerry Li. All rights reserved.
+        </p>
+        <p class="copyright-info" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a
+                property="dct:title" rel="cc:attributionURL" href="https://jerryly.top">The website
+                https://jerryly.top</a>
+            by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://jerryly.top">Jerry
+                Li</a> is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1"
+                target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0 <img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+        <p class="copyright-info" id="footer-links">
+            <a href="mailto:jerrylovesapple@icloud.com">
+                <span class="material-symbols-outlined">alternate_email</span>
+            </a>
+            <a href="javascript:;" onclick="alert('Currently no items in test. Stay tuned!')">
+                <span class="material-symbols-outlined">science</span>
+            </a>
+            <a href="https://blog.jerryly.cn/20240404.html">
+                <span class="material-symbols-outlined">gavel</span>
+            </a>
+        </p>
+    </div>
+
     <script>
-        document.getElementById("directory-back-button").addEventListener("click", () => {
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.href = "https://jerryly.cn";
-            }
+        $('#menu').click(() => {
+            $('#boilerplate').toggleClass('expand');
         });
-        $("#directory-expand").click(() => {
-            $("#directory").toggleClass("active");
-            $("#sitemap").toggleClass("expanded");
-            $("#directory-expand").toggleClass("rotated");
+        $('#sitemap-title-1').click(() => {
+            $('#sitemap-link-1').toggleClass('expand');
         });
-        if (window.innerWidth < 768) {
-            $("#directory").toggleClass("active");
-            $("#sitemap").toggleClass("expanded");
-            $("#directory-expand").toggleClass("rotated");
+        $('#sitemap-title-2').click(() => {
+            $('#sitemap-link-2').toggleClass('expand');
+        });
+        $('#sitemap-title-3').click(() => {
+            $('#sitemap-link-3').toggleClass('expand');
+        });
+        $('#back').click(() => {
+            window.history.back();
+        });
+        $('#menu').click(() => {
+            $('.content-unit').toggleClass('move');
+            $('#sitemap').toggleClass('fade');
+        });
+        function boilerplateClock() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+            document.getElementById('boiler-clock-hour').textContent = hour.toString().padStart(2, '0');
+            document.getElementById('boiler-clock-minute').textContent = minute.toString().padStart(2, '0');
+            document.getElementById('boiler-clock-second').textContent = second.toString().padStart(2, '0');
         }
+        setInterval(() => {
+            boilerplateClock();
+        }, 1000);
     </script>
 </body>
 
