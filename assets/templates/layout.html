@@ -230,7 +230,7 @@
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.96.2/dist/instantsearch.production.min.js"></script>
     <script>
         const counterNames = ["home", "live", "archive", "blog", "demo"]
-        const mobileCounterQuery = window.matchMedia("(max-width: 767px)");
+        const mobileCounterQuery = window.matchMedia("(max-width: 1024px)");
         $("[data-counter]").on("click", function (event) {
             event.stopPropagation();
             const counterName = $(this).data("counter");
