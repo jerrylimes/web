@@ -1096,6 +1096,10 @@ td {
     transition: all 0.2s;
 }
 
+#lyrics-return svg {
+    height: 1em;
+}
+
 #lyrics-return a {
     text-decoration: none;
 }
