@@ -6,9 +6,15 @@
 
 from flask import Flask, render_template, abort
 from flask_frozen import Freezer
+from jinja2 import ChoiceLoader, FileSystemLoader
 import os
 
 app = Flask(__name__, template_folder="assets/templates")
+
+app.jinja_loader = ChoiceLoader([
+    app.jinja_loader,
+    FileSystemLoader("common/templates")
+])
 
 # Serve static files from the 'assets' folder
 app.static_folder = "assets"
